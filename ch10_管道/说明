@@ -1,0 +1,24 @@
+
+
+管道类似一个队列，进行线程间数据的传递
+
+当关闭时消费端也退出，如果没关闭管道，运行时会报死锁
+
+
+可以看出全局变量在线程间是安全的
+
+
+
+//固定写法
+func consumer(wg *sync.WaitGroup) {
+	for {
+		select {
+		case num, ok := <-ch:
+			if !ok {
+				wg.Done()
+				return
+			}
+			sum = sum + num
+		}
+	}
+}
