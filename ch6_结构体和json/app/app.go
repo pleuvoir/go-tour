@@ -6,3 +6,7 @@ type App struct {
 	appAuthor  string "pleuvoir"
 	DefaultD   string "default"
 }
+
+func PrintHelloWorld() {
+	println("hello world")
+}

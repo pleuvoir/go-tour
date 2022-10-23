@@ -1,0 +1,6 @@
+
+
+
+这样的命令安装
+
+go get github.com/rs/zerolog

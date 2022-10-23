@@ -1,0 +1,32 @@
+
+
+
+第一种
+这样可以直接传
+
+	args := os.Args
+
+	for i, arg := range args {
+		println(i, arg)
+	}
+
+go run main.go help=123 test=456 mode=debug
+
+1 help=123
+2 test=456
+3 mode=debug
+
+
+
+第二种 更便捷自带类型转换，还可以给默认值，非常好  flag
+
+
+go run main.go --debug1=false
+
+
+flag provided but not defined: -debug1
+Usage of /var/folders/b_/0j5tbqk55h9bstjczsrnbt000000gn/T/go-build4025875477/b001/exe/main:
+  -debug
+        是否开启debug模式 (default true)
+  -port int
+        端口 (default 80)

@@ -1,0 +1,10 @@
+
+
+go get github.com/rs/zerolog
+
+
+go get -u github.com/rs/zerolog/log
+
+
+
+可参考applog 支持多文件拆分
