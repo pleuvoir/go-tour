@@ -1,0 +1,11 @@
+
+
+线程安全的Map
+
+http://127.0.0.1:8080/store
+
+{"token":"1c1a9786-4897-4119-83d0-02acbaba5f64"}
+
+
+http://127.0.0.1:8080/load?token=1c1a9786-4897-4119-83d0-02acbaba5f64
+{"message":"Load from sync map，result is 1c1a9786-4897-4119-83d0-02acbaba5f64"}

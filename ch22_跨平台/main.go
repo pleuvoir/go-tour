@@ -1,6 +1,8 @@
 package main
 
+import "app/core"
+
 func main() {
-	folder := GetUserFolder()
+	folder := core.GetUserFolder()
 	println(folder)
 }

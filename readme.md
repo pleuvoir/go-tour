@@ -1,4 +1,6 @@
 
+
+## 文档
 https://go.dev/doc/effective_go#maps
 
 
@@ -45,3 +47,13 @@ func main() {
     //...
 }
 ```
+
+
+## 三方包
+
+在这里搜索包 类似Maven [https://pkg.go.dev/](https://pkg.go.dev/)
+
+
+## 快捷键
+
+option + enter 自动修改错误
