@@ -12,7 +12,7 @@ var loggerCache = make(map[string]zerolog.Logger)
 // 用于拆分多文件
 func Init(filenames ...string) {
 	//递归创建文件夹
-	if err := os.MkdirAll("./logs/test.log", 0777); err != nil {
+	if err := os.MkdirAll("./logs", 0777); err != nil {
 		panic(fmt.Sprint("创建日志文件夹错误：", err))
 		return
 	}

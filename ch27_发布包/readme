@@ -1,0 +1,12 @@
+
+
+1. go mod 名称应该是 github.com/pleuvoir/applog 这样的
+2. 整个项目的文件夹可以起一个名字，一个单词，这样别人引用的时候就是这个文件开头，而不是用是完整的github路径
+
+
+当前根路径的module名不一定要是 github.com/pleuvoir/applog 完整路径  而是可以自定义一个简短的单词
+
+3. 最好打一个tag  这样下载的时候就有版本的概念了，不指定就是最新的
+
+
+详情参考 github.com/pleuvoir/applog 就行了
