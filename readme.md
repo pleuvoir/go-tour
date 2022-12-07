@@ -4,6 +4,31 @@
 https://go.dev/doc/effective_go#maps
 
 
+## GO ROOT 和 GO PATH
+
+GO ROOT是程序的安装包路径
+GO PATH是工作目录，以后build什么的文件会在这里
+
+go install的东西就会进入到 go path的bin里
+
+如果环境变量已经配置了，那么go install的可执行文件就等于是可以直接执行的
+
+
+vim ~/.bash_profile
+source ~/.bash_profile
+
+```shell
+export GO_ROOT=/Users/pleuvoir/sdk/go1.19.2
+export PATH=$PATH:$GO_ROOT/bin
+
+export GO_PATH=/Users/pleuvoir/go
+export PATH=$PATH:/$GO_PATH/bin
+
+
+export GO_PROTO=/Users/pleuvoir/dev/support/protoc-3.20.2-osx-x86_64
+export PATH=$PATH:/$GO_PROTO/bin
+```
+
 ## main函数
 
 **不要自己 go mod init main**
