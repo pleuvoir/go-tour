@@ -5,12 +5,13 @@ import (
 	"context"
 	"fmt"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"log"
 )
 
 func main() {
 
-	conn, err := grpc.Dial("127.0.0.1:8000", grpc.WithInsecure())
+	conn, err := grpc.Dial("127.0.0.1:8000", grpc.WithTransportCredentials(insecure.NewCredentials()))
 
 	if err != nil {
 		fmt.Printf("err: %v", err)

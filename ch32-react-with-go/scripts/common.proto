@@ -1,0 +1,20 @@
+syntax = "proto3";
+option go_package = ".;pb";
+
+
+message RequestMessage {
+  string method = 1;
+  string param = 2;
+}
+
+message ResultMessage {
+  int32 code = 1;
+  string message = 2;
+  string data = 3;
+  string method = 4;
+}
+
+message PushMessage {
+  string method = 1;
+  string data = 2;
+}
