@@ -17,7 +17,7 @@ func StartSocketIO(g *gin.Engine, emitFunc requestEmitFunc) *socketIO.Server {
 	server := socketIO.NewServer(transport.GetDefaultWebsocketTransport())
 	g.Any("/socket.io/*any", gin.WrapH(server))
 	_ = server.On(socketIO.OnConnection, func(c *socketIO.Channel) {
-		fmt.Println("socketIO连接成功。")
+		fmt.Println(fmt.Sprintf("socketIO连接成功。cid is %s", c.Id()))
 		//	c.Emit("hello", "im pleuvoir")
 	})
 

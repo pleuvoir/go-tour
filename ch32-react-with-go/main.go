@@ -4,7 +4,6 @@ import (
 	"backend/pb"
 	"context"
 	"encoding/json"
-	"fmt"
 	socketIO "github.com/ambelovsky/gosf-socketio"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -29,17 +28,18 @@ func main() {
 		AllowFiles:             false,
 	}))
 
+	//处理request请求
 	requestService := RequestService{}
-
 	server := StartSocketIO(g, func(c *socketIO.Channel, message *pb.RequestMessage) *pb.ResultMessage {
 		return requestEmitHandler(requestService, c, message)
 	})
 
+	//处理push请求
 	pushService := PushService{server: server}
 
 	go func() {
 		var count int64 = 0
-		for {
+		for count < 500 {
 			count++
 			pushService.UpdateCount(context.Background(), &pb.UpdateCountRequest{Count: count})
 			time.Sleep(time.Second)
@@ -62,15 +62,15 @@ func requestEmitHandler(requestService RequestService, c *socketIO.Channel, mess
 			Method:  methodName,
 			Data:    "",
 			Code:    int32(codes.NotFound),
-			Message: "method not find",
+			Message: "Method not find",
 		}
 	}
 
 	parameter := method.Type.In(2)
 	req := reflect.New(parameter.Elem()).Interface()
-	if err := json.Unmarshal([]byte(message.GetParam()), req); err != nil {
-		fmt.Println(fmt.Sprintf("请求参数非json格式，%s", message.GetParam()))
-	}
+	//if err := json.Unmarshal([]byte(message.GetParam()), req); err != nil {
+	//	fmt.Println(fmt.Sprintf("请求参数非json格式，%s", message))
+	//}
 
 	in := make([]reflect.Value, 0)
 	ctx := context.Background()
